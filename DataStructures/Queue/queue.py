@@ -17,6 +17,8 @@ def dequeue(my_queue: a):
 
 
 def peek(my_queue: a): 
+    if is_empty(my_queue):
+        raise Exception('EmptyStructureError: queue is empty') 
     return a.get_element(my_queue, 0)
     
 def is_empty(my_queue):
