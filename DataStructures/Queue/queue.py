@@ -19,11 +19,11 @@ def dequeue(my_queue: a):
     return elemento_a_eliminar
 
 
-def peek(my_queue): 
-    return my_queue["elements"][0]
+def peek(my_queue: a): 
+    return a.get_element(my_queue, 0)
     
 def is_empty(my_queue):
-    return my_queue["size"] == 0
+    return a.is_empty(my_queue)
        
 def size(my_queue):
     return my_queue["size"]
