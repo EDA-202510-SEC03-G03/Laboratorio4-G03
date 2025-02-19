@@ -5,14 +5,13 @@ def new_queue():
     return queue
 
 def enqueue(my_queue: a, element):
-    my_queue.add_last(element)
-    return my_queue
+    return a.add_last(my_queue, element)
     
 def dequeue(my_queue: a):
     if is_empty(my_queue):
         raise Exception('EmptyStructureError: queue is empty') 
-    elemento_a_eliminar = my_queue.first_element()
-    my_queue.remove_first()
+    elemento_a_eliminar = a.first_element(my_queue)
+    a.remove_first(my_queue)
     return elemento_a_eliminar
 
 
@@ -25,4 +24,4 @@ def is_empty(my_queue):
     return a.is_empty(my_queue)
        
 def size(my_queue):
-    return my_queue["size"]
+    return a.size(my_queue)
