@@ -1,4 +1,4 @@
-import DataStructures.List.single_linked_list as sl
+import DataStructures.List.array_list as sl
 
 def new_stack():
     return sl.new_list()
