@@ -32,7 +32,7 @@ from DataStructures.List import array_list as lt
 from DataStructures.Stack import stack as st
 from DataStructures.Queue import queue as q
 
-data_dir = os.path.dirname(os.path.realpath('__file__')) + '/Data/'
+data_dir = os.path.dirname(os.path.realpath('__file__')) + '/Data'
 
 """
 El controlador se encarga de mediar entre la vista y el modelo.
@@ -146,15 +146,18 @@ def get_user_position_on_queue(catalog, user_id, book_id):
     Retorna la posición de un usuario en la cola para leer un libro.
     """
     queue = q.new_queue()
-
+    #print(lt.first_element(catalog["books_to_read"]))
     # TODO Completar la función que retorna la posición de un usuario en la cola para leer un libro. Se debe usar el TAD Cola para resolver el requerimiento.
-    for book_to_read in catalog["books_to_read"]: 
-        q.enqueue(queue, book_to_read)
-    position = 0
-    for book in queue:
-        if (book["book_id"] == book_id) and (book["user_id"] == user_id):
+    for index in range(lt.size(catalog["books_to_read"])): 
+        book = lt.get_element(catalog["books_to_read"], index)
+        if book["book_id"] == book_id:
+            q.enqueue(queue, book)
+
+
+    for position in range(1, q.size(queue)+1):
+        book = q.dequeue(queue)
+        if (book['user_id'] == user_id):
             return position
-        position += 1
     position = -1
     return position
 
